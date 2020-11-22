@@ -1,5 +1,5 @@
 {
-  "name": "jsdom-2",
+  "name": "jsdom",
   "version": "16.4.0",
   "description": "A JavaScript implementation of many web standards",
   "keywords": [
@@ -18,7 +18,7 @@
     "Pierre-Marie Dartus <dartus.pierremarie@gmail.com>"
   ],
   "license": "MIT",
-  "repository": "creamy-cpu/jsdom-2",
+  "repository": "jsdom/jsdom",
   "dependencies": {
     "abab": "^2.0.3",
     "acorn": "^7.1.1",
@@ -65,6 +65,7 @@
     "eslint": "^6.8.0",
     "eslint-find-rules": "^3.4.0",
     "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-jsdom-internal": "link:./scripts/eslint-plugin",
     "js-yaml": "^3.13.1",
     "karma": "^4.4.1",
     "karma-browserify": "^7.0.0",
@@ -89,6 +90,7 @@
     "./lib/jsdom/living/websockets/WebSocket-impl.js": "./lib/jsdom/living/websockets/WebSocket-impl-browser.js"
   },
   "scripts": {
+    "prepare": "yarn convert-idl && yarn generate-js-globals",
     "pretest": "yarn prepare && yarn init-wpt",
     "test-wpt": "mocha test/web-platform-tests/run-wpts.js",
     "test-tuwpt": "mocha test/web-platform-tests/run-tuwpts.js",
